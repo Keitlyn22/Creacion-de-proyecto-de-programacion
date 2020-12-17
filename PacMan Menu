@@ -1,0 +1,68 @@
+package com.sc202.pacman;
+import ComidaPorDia.ComidaPorDia;
+import javax.swing.JOptionPane;
+import Ingredientes.Ingredientes;
+
+public class Pac_Man {
+
+    
+    public static void main(String[] args) {
+      
+       
+        
+           int menu;
+       do{
+            menu= Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "Bienvenidos a la plataforma Pac-Man  "+"\n"
+                      + "Digite la opcion que prefiera realizar "+"\n"
+                      + "1. Comidas que se venden por día "+"\n"
+                      + "2. Total de ventas "+"\n"
+                      + "3. Comida que más se vende "+"\n"
+                      + "4. Ingredientes "+"\n"
+                      + "5. Gastos "+"\n"
+                      + "6. Información de empleados "+"\n"
+                      + "7. Salarios "+"\n"
+                      + "0. Salir "));
+            
+        switch(menu){
+            case 1:
+             ComidaPorDia dia=new ComidaPorDia();
+             dia.CantidadComidas();
+            break;
+            case 2:
+             TotalVentas ventas=new TotalVentas();
+             ventas.totalventas();
+            break;
+            case 3:
+             ComidaQueVendeMas mas=new ComidaQueVendeMas();
+             mas.LaMasVendida();
+            break;
+            case 4:      
+             Ingredientes ingredientes=new Ingredientes();
+             ingredientes.CantidadIngredientes();
+            break;
+            case 5:
+             Gastos gasto=new Gastos();
+             gasto.TotalDeGastos();
+            break;
+            case 6:
+              InformacionEmpleados informacion = new InformacionEmpleados();
+              informacion.Datos();
+              JOptionPane.showMessageDialog(null, informacion.LeerDatos());
+            break;
+            case 7:              
+             Salario salario = new Salario();
+             salario.Salarios();
+             JOptionPane.showMessageDialog(null, salario.LeerVector()); 
+            break;
+            default:
+                JOptionPane.showMessageDialog(null, "Hasta luego ");
+                System.out.println("\n" +"Gracias por preferirnos ");
+            break;   
+        }
+         }while(menu !=0);
+    
+        
+
+    }  
+}
